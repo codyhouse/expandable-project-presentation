@@ -20,11 +20,11 @@ jQuery(document).ready(function($){
 
 	//scroll to project info
 	$('.projects-container .cd-scroll').on('click', function(){
-		$('body,html').animate({'scrollTop':$(window).height()}, 500); 
+		$('.projects-container').animate({'scrollTop':$(window).height()}, 500); 
 	});
 
 	//update title and .cd-scroll opacity while scrolling
-	$(window).on('scroll', function(){
+	$('.projects-container').on('scroll', function(){
 		window.requestAnimationFrame(changeOpacity);
 	});
 
@@ -54,7 +54,7 @@ jQuery(document).ready(function($){
 	}
 
 	function changeOpacity(){
-		var newOpacity = 1- $(window).scrollTop()/300;
+		var newOpacity = 1- ($('.projects-container').scrollTop())/300;
 		$('.projects-container .cd-scroll').css('opacity', newOpacity);
 		$('.is-full-width .cd-title').css('opacity', newOpacity);
 	}

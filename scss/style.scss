@@ -44,6 +44,8 @@ Main Components
 	height: 100vh;
 	width: 100vw;
 	position: relative;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
 
 	&::before {
 		/* never visible - this is used in jQuery to check the current MQ */
