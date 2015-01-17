@@ -53,7 +53,7 @@ Main Components
 		display: none;
 	}
 
-	li {
+	.cd-single-project {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -149,7 +149,7 @@ Main Components
 			content: 'desktop';
 		}
 
-		li {
+		.cd-single-project {
 			width: 100vw/$items;
 			height: 100%;
 			opacity: 0;
@@ -229,17 +229,17 @@ Main Components
 
     @include MQ(L) {
 
-    	li::after {
+    	.cd-single-project::after {
     		background-attachment: fixed;
 			@include transform(scale(1.1));
 			@include transition(transform .8s, opacity .5s);
     	}
 
-    	li.is-loaded::after {
+    	.cd-single-project.is-loaded::after {
 			opacity: 0;
 		}
 
-	    .no-touch & li:hover::after, li.is-full-width.is-loaded::after {
+	    .no-touch & .cd-single-project:hover::after, .cd-single-project.is-full-width.is-loaded::after {
 	    	opacity: 1;
 	    	@include transform(scale(1));
 	    }

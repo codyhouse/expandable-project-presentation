@@ -1,13 +1,13 @@
 jQuery(document).ready(function($){
 	//check if background-images have been loaded and show list items
-	$('.projects-container li').bgLoaded({
+	$('.cd-single-project').bgLoaded({
 	  	afterLoaded : function(){
 	   		showCaption($('.projects-container li').eq(0));
 	  	}
 	});
 
 	//open project
-	$('.projects-container li').on('click', function(){
+	$('.cd-single-project').on('click', function(){
 		var selectedProject = $(this),
 			toggle = !selectedProject.hasClass('is-full-width');
 		if(toggle) toggleProject($(this), $('.projects-container'), toggle);
