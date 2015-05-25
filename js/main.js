@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
 			project.addClass('is-full-width').siblings('li').removeClass('is-loaded');
 		} else {
 			//check media query
-			var mq = window.getComputedStyle(document.querySelector('.projects-container'), '::before').getPropertyValue('content'),
+			var mq = window.getComputedStyle(document.querySelector('.projects-container'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, ""),
 				delay = ( mq == 'mobile' ) ? 100 : 0;
 
 			container.removeClass('project-is-open');
@@ -57,6 +57,8 @@ jQuery(document).ready(function($){
 		var newOpacity = 1- ($('.projects-container').scrollTop())/300;
 		$('.projects-container .cd-scroll').css('opacity', newOpacity);
 		$('.is-full-width .cd-title').css('opacity', newOpacity);
+		//Bug fixed - Chrome background-attachment:fixed rendering issue
+		$('.is-full-width').hide().show(0);
 	}
 
 	function showCaption(project) {
